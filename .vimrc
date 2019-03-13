@@ -51,6 +51,7 @@ Plugin 'tpope/vim-commentary' " Comments. `gcc` to activate
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'Quramy/tsuquyomi' " Typescript magic
+Plugin 'powerline/powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
