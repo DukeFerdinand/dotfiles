@@ -42,7 +42,15 @@ Plugin 'Valloric/YouCompleteMe'
 
 " TypeScript syntax highlighting
 Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'HerringtonDarkholme/yats.vim'
+
+" IDE stuff
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary' " Comments. `gcc` to activate
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'Quramy/tsuquyomi' " Typescript magic
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,13 +69,34 @@ filetype plugin indent on    " required
 
 " Syntax activation
 syntax on
+set number
 let g:yats_host_keyword = 1
 
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+" vim-jsx-typescript
+" dark red
+hi tsxTagName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+
 
 " Gruvbox
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark    " Setting dark mode
 
+" Fuzzy Search
+nnoremap <C-p> :FZF<CR>
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
