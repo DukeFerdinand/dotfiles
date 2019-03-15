@@ -131,4 +131,4 @@ let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
 let g:closetag_filenames = '*.jsx,*.tsx'
 
 " Comments (Commentary)
-autocmd FileType *.jsx,*.tsx setlocal commmentString={/*\ %s\ */}
+autocmd FileType javascript.jsx,typescript.tsx setlocal commentstring={/*\ %s\ */}
