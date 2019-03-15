@@ -44,14 +44,22 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Quramy/tsuquyomi' " Typescript magic
 
 " IDE stuff
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary' " Comments. `gcc` to activate
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'Quramy/tsuquyomi' " Typescript magic
-Plugin 'powerline/powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+" Tag completion /string surrounding stuff
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'alvan/vim-closetag'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,3 +109,26 @@ nnoremap <C-p> :FZF<CR>
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Prettier config
+
+"" Format on save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.hbs PrettierAsync
+
+" Auto tag closing
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified
+" files.
+"
+
+let g:closetag_filenames = '*.jsx,*.tsx'
+
+" Comments (Commentary)
+autocmd FileType *.jsx,*.tsx setlocal commmentString={/*\ %s\ */}
