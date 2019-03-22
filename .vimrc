@@ -27,6 +27,7 @@ Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
 "Plugin 'ternjs/tern_for_vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'tomasiser/vim-code-dark'
 
 " Code completion for a TON of stuff
 Plugin 'Valloric/YouCompleteMe'
@@ -91,6 +92,7 @@ filetype plugin indent on    " required
 " =============================================================
 
 syntax on
+set tabstop=2
 
 " Set relative numbers when file is active
 set number relativenumber
@@ -100,10 +102,6 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-
-let g:gruvbox_italic=1
-colorscheme gruvbox
-set background=dark    " Setting dark mode
 
 " vim-jsx-typescript
 " dark red
@@ -117,6 +115,12 @@ hi tsxEqual guifg=#F99575
 
 " yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
+
+" let g:gruvbox_italic=1
+"colorscheme gruvbox
+"set background=dark    " Setting dark mode
+colorscheme codedark
+
 
 " Keep at bottom of visual! This resets the background to be clear
 hi Normal ctermbg=none
