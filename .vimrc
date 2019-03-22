@@ -21,22 +21,24 @@ Plugin 'VundleVim/Vundle.vim'
 "     PLUGINS
 " =============================================================
 
-" Color themes
+" ================================
+"     Visual/Color
+" ================================
 Plugin 'morhetz/gruvbox'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
-"Plugin 'ternjs/tern_for_vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'tomasiser/vim-code-dark'
-
-" Code completion for a TON of stuff
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ryanoasis/vim-devicons'
 
 " ================================
 "     Language specific
 " ================================
 
-" TypeScript
+" Code completion for a TON of stuff
+Plugin 'Valloric/YouCompleteMe' " Requires extra setup
+
+" TypeScript - REQUIRES global tsserver
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'HerringtonDarkholme/yats.vim'
@@ -92,6 +94,7 @@ filetype plugin indent on    " required
 " =============================================================
 
 syntax on
+set encoding=UTF-8
 set tabstop=2
 
 " Set relative numbers when file is active
@@ -118,12 +121,17 @@ hi tsxAttrib guifg=#F8BD7F cterm=italic
 
 " let g:gruvbox_italic=1
 "colorscheme gruvbox
-"set background=dark    " Setting dark mode
+set background=dark    " Setting dark mode
 colorscheme codedark
 
 
 " Keep at bottom of visual! This resets the background to be clear
 hi Normal ctermbg=none
+hi EndOfBuffer ctermbg=none
+hi FoldColumn ctermbg=none
+hi LineNr ctermbg=none
+hi NonText ctermbg=none
+hi Directory ctermbg=none
 
 " =============================================================
 "     Plugin Specific Preparation
@@ -152,7 +160,7 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 " =============================================================
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.hbs PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.hbs Prettier
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 
@@ -189,3 +197,5 @@ let g:tagbar_type_typescript = {
 nnoremap <C-p> :FZF<CR>
 nnoremap ,f :YcmCompleter GoTo<CR>
 nnoremap ,F :YcmCompleter GoToReferences<CR>
+
+
