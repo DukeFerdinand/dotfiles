@@ -60,8 +60,7 @@ Plugin 'tpope/vim-liquid'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary' " Comments. `gcc` to activate
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -94,6 +93,7 @@ filetype plugin indent on    " required
 " =============================================================
 
 syntax on
+set noshowmode
 set encoding=UTF-8
 set tabstop=2
 
@@ -194,7 +194,6 @@ let g:tagbar_type_typescript = {
 " =============================================================
 
 
-nnoremap <C-p> :FZF<CR>
 nnoremap ,f :YcmCompleter GoTo<CR>
 nnoremap ,F :YcmCompleter GoToReferences<CR>
 
