@@ -8,7 +8,9 @@ export ZSH="/Users/douglasshooker/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+DEFAULT_USER="$USER"
+prompt_context(){}
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -95,26 +97,30 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    # Custom shell scripts to PATH
+    export PATH="/Users/$USER/bin/:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/douglasshooker/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/douglasshooker/code/google-cloud-sdk/path.zsh.inc'; fi
+    # The next line updates PATH for the Google Cloud SDK.
+    if [ -f '/Users/douglasshooker/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/douglasshooker/code/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/douglasshooker/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/douglasshooker/code/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+    # The next line enables shell command completion for gcloud.
+    if [ -f '/Users/douglasshooker/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/douglasshooker/code/google-cloud-sdk/completion.zsh.inc'; fi
+    export PATH="/usr/local/opt/gettext/bin:$PATH"
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+esac
 
 # Python alias
 alias python=python3
 
-# Custom shell scripts to PATH
-export PATH="/Users/$USER/bin/:$PATH"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# PHP
+export PATH="$HOME/.composer/vendor/bin/:$PATH"
+
