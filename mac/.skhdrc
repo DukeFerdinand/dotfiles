@@ -162,19 +162,19 @@ cmd + alt - n : chunkc tiling::desktop --create;\
 cmd + alt - w : chunkc tiling::desktop --annihilate
 
 # fast focus desktop
-ctrl + cmd - x : chunkc tiling::desktop -f $(chunkc get _last_active_desktop)
-ctrl + cmd - z : chunkc tiling::desktop -f prev
-ctrl + cmd - c : chunkc tiling::desktop -f next
-ctrl + cmd - 1 : chunkc tiling::desktop -f 1
-ctrl + cmd - 2 : chunkc tiling::desktop -f 2
-ctrl + cmd - 3 : chunkc tiling::desktop -f 3
-ctrl + cmd - 4 : chunkc tiling::desktop -f 4
-ctrl + cmd - 5 : chunkc tiling::desktop -f 5
-ctrl + cmd - 6 : chunkc tiling::desktop -f 6
-ctrl + cmd - 7 : chunkc tiling::desktop -f 7
-ctrl + cmd - 8 : chunkc tiling::desktop -f 8
-ctrl + cmd - 9 : chunkc tiling::desktop -f 9
-ctrl + cmd - 0 : chunkc tiling::desktop -f 10
+alt - x : chunkc tiling::desktop -f $(chunkc get _last_active_desktop)
+alt - z : chunkc tiling::desktop -f prev
+alt - c : chunkc tiling::desktop -f next
+alt - 1 : chunkc tiling::desktop -f 1
+alt - 2 : chunkc tiling::desktop -f 2
+alt - 3 : chunkc tiling::desktop -f 3
+alt - 4 : chunkc tiling::desktop -f 4
+alt - 5 : chunkc tiling::desktop -f 5
+alt - 6 : chunkc tiling::desktop -f 6
+alt - 7 : chunkc tiling::desktop -f 7
+alt - 8 : chunkc tiling::desktop -f 8
+alt - 9 : chunkc tiling::desktop -f 9
+alt - 0 : chunkc tiling::desktop -f 10
 
 # send window to desktop
 shift + alt - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
