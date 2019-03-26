@@ -146,6 +146,11 @@ let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
 
 let g:yats_host_keyword = 1
 
+" CTRLP
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](node_modules|\.git|build)$',
+\}
+
 " =============================================================
 "     Action(s) on open
 " =============================================================
