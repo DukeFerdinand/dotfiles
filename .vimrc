@@ -60,7 +60,7 @@ Plugin 'tpope/vim-liquid'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary' " Comments. `gcc` to activate
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -93,6 +93,8 @@ filetype plugin indent on    " required
 " =============================================================
 
 syntax on
+" Ignore case, Highlight search, Incremental search (follow search)
+set ic hls is
 set noshowmode
 set encoding=UTF-8
 set tabstop=2
@@ -132,6 +134,7 @@ hi FoldColumn ctermbg=none
 hi LineNr ctermbg=none
 hi NonText ctermbg=none
 hi Directory ctermbg=none
+hi Search cterm=NONE ctermfg=black ctermbg=yellow
 
 " =============================================================
 "     Plugin Specific Preparation
@@ -145,6 +148,9 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
 
 let g:yats_host_keyword = 1
+
+" Devicons config
+let g:webdevicons_enable_ctrlp = 1
 
 " CTRLP
 let g:ctrlp_custom_ignore = {
@@ -195,11 +201,15 @@ let g:tagbar_type_typescript = {
   \}
 
 " =============================================================
-"     Key Bindings
+"     Key Bindings and Commands
 " =============================================================
 
 
 nnoremap ,f :YcmCompleter GoTo<CR>
 nnoremap ,F :YcmCompleter GoToReferences<CR>
+" Simulates VS Code's ctrl/cmd + b to toggle sidebar
+nnoremap <c-B> :NERDTreeToggle<CR>
 
+
+cnoreabbrev nt NERDTree<CR>
 
