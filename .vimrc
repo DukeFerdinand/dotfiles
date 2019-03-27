@@ -98,6 +98,9 @@ set ic hls is
 set noshowmode
 set encoding=UTF-8
 set tabstop=2
+" sets the fold (za) method relative to filetype
+set foldmethod=syntax
+set foldlevelstart=20
 
 " Set relative numbers when file is active
 set number relativenumber
