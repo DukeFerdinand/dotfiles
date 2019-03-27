@@ -122,6 +122,7 @@ case `uname` in
   ;;
   Linux)
     # commands for Linux go here
+		export PATH="$(yarn global bin):$PATH"
   ;;
 esac
 
