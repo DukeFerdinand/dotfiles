@@ -4,10 +4,10 @@
 # Path to your oh-my-zsh installation.
 case `uname` in 
 		Darwin)
-      export ZSH="/Users/douglasshooker/.oh-my-zsh"
+      export ZSH="/Users/$USER/.oh-my-zsh"
 		;;
     Linux)
-			export ZSH="/home/celeborn/.oh-my-zsh"
+			export ZSH="/home/$USER/.oh-my-zsh"
 		;;
 esac
 
