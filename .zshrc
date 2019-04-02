@@ -119,6 +119,9 @@ case `uname` in
     # The next line enables shell command completion for gcloud.
     if [ -f '/Users/douglasshooker/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/douglasshooker/code/google-cloud-sdk/completion.zsh.inc'; fi
     export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+		# Python
+		export PATH="/Users/$USER/Library/Python/3.7/bin:$PATH"
   ;;
   Linux)
     # commands for Linux go here
