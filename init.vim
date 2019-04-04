@@ -232,8 +232,9 @@ let g:tagbar_type_typescript = {
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-nnoremap ,f :YcmCompleter GoTo<CR>
-nnoremap ,F :YcmCompleter GoToReferences<CR>
+nnoremap ,f :TSRefs<CR>
+nnoremap ,F :TSDefPreview<CR>
+nnoremap ,d :TSType<CR>
 " Simulates VS Code's ctrl/cmd + b to toggle sidebar
 nnoremap <c-B> :NERDTreeToggle<CR>
 
